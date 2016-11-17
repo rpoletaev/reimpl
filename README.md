@@ -1,2 +1,2 @@
 # reimpl
-redis like application 
+telnet client to test_jn
