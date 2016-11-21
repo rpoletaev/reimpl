@@ -2,7 +2,9 @@ package main
 
 import (
 	"bufio"
+	"flag"
 	"fmt"
+	"log"
 	"os"
 	"strconv"
 	"strings"
@@ -11,9 +13,11 @@ import (
 )
 
 func main() {
-	con, err := reimpl.Dial("localhost", ":2020")
+	port := flag.Int("-p", 2020, "Port")
+	host := flag.String("-h", "localhost", "Host")
+	con, err := reimpl.Dial(*host, fmt.Sprintf(":%d", port))
 	if err != nil {
-		println(err)
+		log.Fatal(err)
 	}
 
 	defer con.Close()
