@@ -15,7 +15,7 @@ import (
 func main() {
 	port := flag.Int("-p", 2020, "Port")
 	host := flag.String("-h", "localhost", "Host")
-	con, err := reimpl.Dial(*host, fmt.Sprintf(":%d", port))
+	con, err := reimpl.Dial(*host, fmt.Sprintf(":%d", *port))
 	if err != nil {
 		log.Fatal(err)
 	}
